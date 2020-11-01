@@ -1,2 +1,7 @@
 .vscode
 env
+*.png
+test
+test.py
+inputs
+outputs

@@ -22,9 +22,11 @@ class FrameSegment(object):
         Compress image and Break down
         into data segments 
         """
+        # img = cv2.resize(img, (int(img.shape[1]/2), int(img.shape[0]/2)))
         compress_img = cv2.imencode('.jpg', img)[1]
-        dat = compress_img.tostring()
+        dat = compress_img.tobytes()
         size = len(dat)
+        print("packet size: "+str(size))
         count = math.ceil(size/(self.MAX_IMAGE_DGRAM))
         array_pos_start = 0
         while count:
@@ -46,14 +48,16 @@ def main():
     fs = FrameSegment(s, port)
     start = time.time()
     frameCount = 0
-    cap = cv2.VideoCapture(2)
+    cap = cv2.VideoCapture(0)
+    _, frame = cap.read() # returns frameGrabbed, frameDecoded
+
     while (cap.isOpened()):
         _, frame = cap.read()
         fs.udp_frame(frame)
         frameCount += 1
         if time.time() - start > 1:
-            start = time.time() - 1
-            print("FPS: "+frameCount)
+            start = time.time()
+            print("FPS: "+str(frameCount))
             frameCount = 0
     cap.release()
     cv2.destroyAllWindows()
