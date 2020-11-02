@@ -106,7 +106,14 @@ venv.bak/
 # TecoGAN model
 model
 # inputs
-LR
+bridge
+calendar
+city
+face
+foliage
+room
+walk
+*.zip
 # outputs
 results
 # targets
