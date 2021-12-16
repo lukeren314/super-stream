@@ -1,0 +1,4 @@
+﻿  super-stream-cpp.cpp
+C:\CodingProjects\super-stream\super-stream-cpp\super-stream-cpp\super-stream-cpp.cpp(30,18): warning C4244: 'initializing': conversion from 'time_t' to 'double', possible loss of data
+C:\CodingProjects\super-stream\super-stream-cpp\super-stream-cpp\super-stream-cpp.cpp(59,30): warning C4244: '=': conversion from 'time_t' to 'double', possible loss of data
+  super-stream-cpp.vcxproj -> C:\CodingProjects\super-stream\super-stream-cpp\x64\Debug\super-stream-cpp.exe
